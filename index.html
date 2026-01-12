@@ -1,285 +1,248 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pablo Castro - Portafolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Fuente cyberpunk: Orbitron -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Pablo Castro | Fullstack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0f172a',      /* Azul muy oscuro (Slate 900) */
+                        card: '#1e293b',    /* Azul grisáceo (Slate 800) */
+                        primary: '#22d3ee', /* Cyan brillante */
+                        secondary: '#a855f7', /* Púrpura neón */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+    /* ===============================
+       Variables globales
+    =============================== */
+    :root {
+        --bg-dark: #0f172a;
+        --bg-card: #1e293b;
+        --primary: #22d3ee;
+        --secondary: #a855f7;
+        --glass-bg: rgba(15, 23, 42, 0.85);
+    }
+
+    /* ===============================
+       Glassmorphism Navbar
+    =============================== */
+    .glass-nav {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ===============================
+       Texto con brillo
+    =============================== */
+    .text-glow {
+        text-shadow:
+            0 0 8px rgba(34, 211, 238, 0.6),
+            0 0 16px rgba(34, 211, 238, 0.4);
+    }
+
+    /* ===============================
+       Texto con gradiente
+    =============================== */
+    .gradient-text {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* ===============================
+       Imagen de perfil
+    =============================== */
+    .profile-image {
+        transition: filter 0.5s ease, transform 0.5s ease;
+    }
+
+    .profile-image:hover {
+        filter: grayscale(0);
+        transform: scale(1.03);
+    }
+
+    /* ===============================
+       Suavizado general
+    =============================== */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
 </head>
-<body>
-    <!-- Menú lateral -->
-    <nav class="sidebar col-md-3 col-lg-2 d-md-block">
-        <div class="profile-pic text-center py-4">
-            <img src="Fotos/MiFoto.jpg" alt="Pablo Castro" class="img-fluid rounded-circle">
+<body class="bg-bg text-gray-300 font-sans selection:bg-primary selection:text-bg">
+
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-mono text-xl font-bold text-white hover:text-primary transition">
+                &lt;PabloCastro /&gt;
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#inicio" class="hover:text-primary transition">Inicio</a>
+                <a href="#stack" class="hover:text-primary transition">Habilidades</a>
+                <a href="#proyectos" class="hover:text-primary transition">Proyectos</a>
+                <a href="#contacto" class="px-4 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-bg transition">Contáctame</a>
+            </div>
         </div>
-        <ul class="nav flex-column">
-            <li class="nav-item"><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
-            <li class="nav-item"><a href="#portafolio" class="nav-link">Portafolio</a></li>
-            <li class="nav-item"><a href="#educacion" class="nav-link">Educación</a></li>
-            <li class="nav-item"><a href="#habilidades" class="nav-link">Habilidades</a></li>
-            <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
-        </ul>
     </nav>
 
-    <!-- Contenido principal -->
-    <main class="content col-md-9 ms-md-auto col-lg-10 px-md-4">
-        <!-- Sección Sobre mí -->
-        <section id="sobre-mi" class="section">
-            <h1>Sobre mí</h1>
-            <div class="container mt-4">
-                <p class="cyber-text">
-                    Soy Pablo Castro, un técnico en informática apasionado por el desarrollo web y la inteligencia artificial. Mi interés por la tecnología comenzó con los videojuegos y la curiosidad de entender cómo funcionan, lo que me llevó a explorar lenguajes como Python y Java para crear mis propias soluciones. Me fascina cómo la IA puede transformar ideas en herramientas prácticas, y disfruto experimentando con frameworks como Angular o Node.JS para construir interfaces dinámicas.
-                </p>
-                <p class="cyber-text">
-                    Aprendo mejor desarmando problemas complejos en partes pequeñas, ya sea resolviendo ejercicios de matemáticas o depurando código en Visual Studio Code. Mis fortalezas están en mi capacidad para adaptarme a nuevas tecnologías, mi dominio del inglés para investigar documentación y mi enfoque lógico para gestionar bases de datos como MySQL u Oracle SQL. Cuando no estoy programando, me conecto a la Realidad Virtual, para aumentar mis habilidades sociales.
-                </p>
+    <section id="inicio" class="pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+        <div class="md:w-1/2 space-y-6">
+            <div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold border border-primary/20">
+                DISPONIBLE PARA CONTRATAR
             </div>
-        </section>
-
-        <!-- Sección Portafolio -->
-        <section id="portafolio" class="section">
-            <h1>Portafolio</h1>
-            <div class="container mt-4">
-                <div class="row">
-                    <!-- Proyecto 1: Simulador de Subsidios -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card cyber-card">
-                            <img src="Portafolio/Subsidios.png" class="card-img-top" alt="Simulador de Subsidios">
-                            <div class="card-body">
-                                <h5 class="card-title">Simulador de Subsidios </h5>
-                                <p class="card-text">Aplicación web para simular la asignación de subsidios, segun sueldo. Tambien muestra el valor maximo de compra de casa segun sueldo. Y simulador de credito hipotecario.</p>
-                                <p class="card-text">Es un proyecto completamente personal.</p>
-                                <div class="tech-tags mb-2">
-                                    <span class="badge bg-html">HTML</span>
-                                    <span class="badge bg-css">CSS</span>
-                                    <span class="badge bg-js">JavaScript</span>
-                                </div>
-                                <a href="https://github.com/Pablo-Castro-Fuentes/Simulador-de-Compras-de-Casas" target="_blank" class="btn btn-cyber">Ver en GitHub</a>
-                                <a href="https://quiet-licorice-111b82.netlify.app/" target="_blank" class="btn btn-cyber">Ver Pagina</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Proyecto 2: Proyecto DUOC UC -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card cyber-card">
-                            <img src="Portafolio/Logo Cafe.jpg" class="card-img-top" alt="Proyecto DUOC UC">
-                            <div class="card-body">
-                                <h5 class="card-title">Cafe Vrde</h5>
-                                <p class="card-text">Proyecto académico desarrollado durante mi formación en DUOC UC. Una pagina web de una cafeteria</p>
-                                <div class="tech-tags mb-2">
-                                    <span class="badge bg-html">HTML</span>
-                                    <span class="badge bg-css">CSS</span>
-                                    <span class="badge bg-js">JavaScript</span>
-                                </div>
-                                <a href="https://github.com/Pablo-Castro-Fuentes/Proyecto-DUOC-UC" target="_blank" class="btn btn-cyber">Ver en GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+                Hola, soy <br>
+                <span class="gradient-text">Pablo Castro</span>
+            </h1>
+            <p class="text-xl text-gray-400">
+                Analista Programador Computacional &amp; Fullstack Developer.
+            </p>
+            <div class="flex items-center text-sm text-gray-500 font-mono gap-4">
+                <span>📍 Huechuraba, Santiago</span>
+                <span>•</span>
+                <span>🎓 Titulado Duoc UC</span>
             </div>
-        </section>
+            <p class="leading-relaxed">
+                De armar PCs pieza por pieza a construir software complejo. Transformo problemas reales en soluciones digitales con 
+                <strong class="text-white">Java, Spring Boot y Angular</strong>. Resiliente, autodidacta y apasionado por la tecnología.
+            </p>
+            
+            <div class="flex gap-4 pt-4">
+                <a href="#proyectos" class="bg-primary text-bg px-6 py-3 rounded font-bold hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition">
+                    Ver Proyectos
+                </a>
+                <a href="https://github.com/Pcastro2001" target="_blank" class="border border-gray-600 px-6 py-3 rounded hover:border-white text-white transition flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
 
-        <!-- Sección Educación -->
-        <section id="educacion" class="section">
-            <h1>Educación</h1>
-            <div class="container mt-4">
-                <!-- Certificaciones -->
-                <h3 class="sub-title">Certificaciones</h3>
-                <div class="row">
-                    <!-- Certificado Azure AI -->
-                    <div class="col-md-6 mb-4">
-                        <div class="card cyber-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Microsoft Azure AI Fundamentals</h5>
-                                <p class="card-text">Certificación en fundamentos de inteligencia artificial con Microsoft Azure, obtenida a través de Credly.</p>
-                                <a href="https://www.credly.com/badges/ef73545d-3990-40b3-b1b8-901444cbb8cf" target="_blank" class="btn btn-cyber">Ver Certificado</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Certificado Python Cisco -->
-                    <div class="col-md-6 mb-4">
-                        <div class="card cyber-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Python Essentials (Cisco)</h5>
-                                <p class="card-text">Certificación en fundamentos de programación con Python, otorgada por Cisco Networking Academy.</p>
-                                <a href="https://www.credly.com/badges/a159cfd6-7552-436e-a48a-e0c3de809c14" target="_blank" class="btn btn-cyber">Ver Certificado</a>
-                            </div>
-                        </div>
+        <div class="md:w-1/2 flex justify-center relative">
+            <div class="absolute w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+            <img src="Foto-Titulacion.png" 
+                 alt="Pablo Castro" 
+                 class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-card relative z-10 shadow-2xl grayscale hover:grayscale-0 transition duration-500">
+        </div>
+    </section>
+
+    <section id="stack" class="py-20 bg-card/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 font-mono"><span class="text-primary">01.</span> Mi Arsenal Técnico</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-bg p-6 rounded-xl border border-white/5 hover:border-primary/30 transition group">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-secondary">#</span> Backend Core
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Java</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Spring Boot</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Oracle SQL</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">PostgreSQL</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Python</span>
                     </div>
                 </div>
 
-                <!-- Estudios -->
-                <h3 class="sub-title mt-5">Estudios</h3>
-                <div class="row">
-                    <!-- UTEM -->
-                    <div class="col-md-6 mb-4">
-                        <div class="card cyber-card">
-                            <div class="card-body d-flex align-items-center">
-                                <img src="Fotos/UTEM.png" alt="UTEM Logo" class="institution-logo me-3">
-                                <div>
-                                    <h5 class="card-title">Ingeniería Civil en Computación</h5>
-                                    <p class="card-text">Universidad Tecnológica Metropolitana (UTEM)<br>2019 - 2022 (No finalizada)</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="bg-bg p-6 rounded-xl border border-white/5 hover:border-primary/30 transition group">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-primary">#</span> Frontend Moderno
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Angular</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">HTML5/CSS3</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Tailwind</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Material Design 3</span>
                     </div>
-                    <!-- DUOC UC -->
-                    <div class="col-md-6 mb-4">
-                        <div class="card cyber-card">
-                            <div class="card-body d-flex align-items-center">
-                                <img src="Fotos/DUOC.jpg" alt="DUOC UC Logo" class="institution-logo me-3">
-                                <div>
-                                    <h5 class="card-title">Analista Programador</h5>
-                                    <p class="card-text">DUOC UC<br>2023 - 2025</p>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+
+                <div class="bg-bg p-6 rounded-xl border border-white/5 hover:border-primary/30 transition group">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-green-400">#</span> Tools & Hardware
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Git / GitHub</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Figma</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">PC Building</span>
+                        <span class="bg-card px-3 py-1 rounded text-sm text-gray-300 border border-white/10">Hardware Diag</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sección Habilidades -->
-        <section id="habilidades" class="section">
-            <h1>Habilidades</h1>
-            <div class="container mt-4">
-                <!-- Lenguajes de Programación -->
-                <h3 class="sub-title">Lenguajes de Programación</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card cyber-card mb-4">
-                            <div class="card-body">
-                                <div class="tech-tags">
-                                    <span class="badge bg-c">C</span>
-                                    <span class="badge bg-cpp">C++</span>
-                                    <span class="badge bg-python">Python</span>
-                                    <span class="badge bg-java">Java</span>
-                                    <span class="badge bg-html">HTML</span>
-                                    <span class="badge bg-css">CSS</span>
-                                    <span class="badge bg-js">JavaScript</span>
-                                </div>
-                            </div>
-                        </div>
+    <section id="proyectos" class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-white mb-12 font-mono"><span class="text-primary">02.</span> Proyectos Destacados</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <article class="bg-card border border-primary/20 rounded-xl overflow-hidden hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] transition duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Simulador de Subsidios</h3>
+                        <a href="https://splendid-cajeta-8fdbf3.netlify.app/index.html" target="_blank" class="text-primary hover:text-white transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Herramienta web completa para guiar a usuarios en la postulación a subsidios habitacionales chilenos (DS1/DS49). Incluye cálculo de percentiles y simulación de crédito hipotecario.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6 font-mono text-xs">
+                        <span class="text-primary">JavaScript</span>
+                        <span class="text-primary">Lógica Financiera</span>
+                        <span class="text-primary">Algoritmos</span>
                     </div>
                 </div>
+                <div class="h-2 bg-gradient-to-r from-primary to-secondary"></div>
+            </article>
 
-                <!-- Bases de Datos -->
-                <h3 class="sub-title">Bases de Datos</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card cyber-card mb-4">
-                            <div class="card-body">
-                                <div class="tech-tags">
-                                    <span class="badge bg-oracle">Oracle SQL</span>
-                                    <span class="badge bg-mysql">MySQL</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <article class="bg-card border border-white/5 rounded-xl p-6 flex flex-col justify-center items-center text-center opacity-70 hover:opacity-100 transition">
+                <div class="p-4 bg-bg rounded-full mb-4">
+                    <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
                 </div>
+                <h3 class="text-xl font-bold text-white mb-2">Calculadora de Hardware PC</h3>
+                <p class="text-sm text-gray-500">En desarrollo. Algoritmo para calcular precios, cuellos de botella y compatibilidad de componentes.</p>
+            </article>
 
-                <!-- Frameworks y Librerías -->
-                <h3 class="sub-title">Frameworks y Librerías</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card cyber-card mb-4">
-                            <div class="card-body">
-                                <div class="tech-tags">
-                                    <span class="badge bg-ionic">Ionic</span>
-                                    <span class="badge bg-angular">Angular</span>
-                                    <span class="badge bg-django">Django</span>
-                                    <span class="badge bg-nodejs">NodeJS</span>
-                                    <span class="badge bg-bootstrap">Bootstrap</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
 
-                <!-- Software y Herramientas -->
-                <h3 class="sub-title">Software y Herramientas</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card cyber-card mb-4">
-                            <div class="card-body">
-                                <div class="tech-tags">
-                                    <span class="badge bg-vscode">Visual Studio Code</span>
-                                    <span class="badge bg-netbeans">Netbeans</span>
-                                    <span class="badge bg-excel">Excel</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <footer id="contacto" class="bg-bg border-t border-white/10 py-12 text-center">
+        <h2 class="text-2xl font-bold text-white mb-6">¿Hablamos?</h2>
+        <p class="text-gray-400 max-w-lg mx-auto mb-8">
+            Actualmente estoy buscando oportunidades como Desarrollador Junior. Si tienes un proyecto o una vacante, mi bandeja de entrada está abierta.
+        </p>
+        
+        <div class="flex justify-center gap-6 mb-12">
+            <a href="mailto:pcastrof022001@gmail.com" class="text-gray-400 hover:text-primary transition">Enviar Correo</a>
+            <a href="https://www.linkedin.com/in/pablo-castro-fuentes-076b85227/" class="text-gray-400 hover:text-primary transition">LinkedIn</a>
+            <a href="https://github.com/Pcastro2001" class="text-gray-400 hover:text-primary transition">GitHub</a>
+        </div>
+        
+        <p class="text-sm text-gray-600 font-mono">
+            Diseñado y Desarrollado por Pablo Castro © 2026
+        </p>
+    </footer>
 
-                <!-- Estoy aprendiendo -->
-                <h3 class="sub-title">Estoy aprendiendo</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card cyber-card mb-4">
-                            <div class="card-body">
-                                <p class="card-text">Actualmente estoy aprendiendo C# por mi cuenta, explorando sus aplicaciones en desarrollo de software.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Contacto -->
-        <section id="contacto" class="section">
-            <h1>Contacto</h1>
-            <div class="container mt-4">
-                <!-- Contactos -->
-                <h3 class="sub-title">Ponte en contacto conmigo</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card cyber-card mb-4">
-                            <div class="card-body">
-                                <ul class="list-unstyled cyber-text">
-                                    <li class="mb-3">
-                                        <strong>WhatsApp:</strong> 
-                                        <a href="https://wa.me/56965230408" target="_blank" class="cyber-link">+56 9 6523 0408</a>
-                                    </li>
-                                    <li class="mb-3">
-                                        <strong>LinkedIn:</strong> 
-                                        <a href="https://www.linkedin.com/in/pablo-castro-fuentes-076b85227/" target="_blank" class="cyber-link">https://www.linkedin.com/in/pablo-castro-fuentes-076b85227/</a>
-                                    </li>
-                                    <li>
-                                        <strong>Email:</strong> 
-                                        <a href="mailto:pab.castro@duocuc.cl" class="cyber-link">pab.castro@duocuc.cl</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tecnologías usadas -->
-                <h3 class="sub-title">Esta página fue creada con</h3>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card cyber-card">
-                            <div class="card-body">
-                                <div class="tech-tags">
-                                    <span class="badge bg-html">HTML</span>
-                                    <span class="badge bg-css">CSS</span>
-                                    <span class="badge bg-js">JavaScript</span>
-                                    <span class="badge bg-bootstrap">Bootstrap</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
