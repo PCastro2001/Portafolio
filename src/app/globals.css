@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #04060A;      /* Asphalt void */
+  --color-card-dark: #090E1A;    /* Terminal slate */
+  --color-border-dark: #172237;  /* Tech grid border */
+  --color-neon-pink: #EC4899;    /* Hot Synthwave Pink */
+  --color-neon-cyan: #00F2FE;    /* Electric Laser Cyan */
+  --color-cyber-purple: #8B5CF6; /* Nocturnal Violet */
+}
+
+:root {
+  --background: #04060A;
+  --foreground: #E2E8F0; /* Slate 200 */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom VR-Cyberpunk Utilities */
+
+.text-glow-pink {
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.6), 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.6), 0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+.glass-navbar {
+  background: rgba(4, 6, 10, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 242, 254, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #04060A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #172237;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EC4899;
+}
+
+/* Blinking terminal caret animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.terminal-caret::after {
+  content: "▋";
+  margin-left: 0.25rem;
+  color: #00F2FE;
+  animation: blink 1s infinite;
+}
+
+/* CRT Screen Scanline Overlay */
+.crt-overlay {
+  position: relative;
+}
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.18) 50%);
+  background-size: 100% 4px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Retro-Futuristic Laser Grid Backdrop */
+.laser-grid {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 242, 254, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 242, 254, 0.06) 1px, transparent 1px);
+}
+
+/* Glowing Neon Borders */
+.border-glow-cyan:hover {
+  border-color: rgba(0, 242, 254, 0.6);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+}
+
+.border-glow-pink:hover {
+  border-color: rgba(236, 72, 153, 0.6);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.25);
+}
+
+/* Ambient Pulse Animation for Glowing Background Orbs */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.08); }
+}
+
+.ambient-orb {
+  animation: float 10s ease-in-out infinite;
+}
+
+/* Sci-fi Corner Brackets for HUD layout */
+.hud-corners::before,
+.hud-corners::after,
+.hud-corners > *:first-child::before,
+.hud-corners > *:first-child::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: #00F2FE;
+  border-style: solid;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Top-Left */
+.hud-corners::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+/* Top-Right */
+.hud-corners::after {
+  top: -1px;
+  right: -1px;
+  border-width: 1px 1px 0 0;
+}
+/* Bottom-Left */
+.hud-corners > *:first-child::before {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 1px 1px;
+}
+/* Bottom-Right */
+.hud-corners > *:first-child::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
