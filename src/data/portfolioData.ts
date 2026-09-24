@@ -115,16 +115,19 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "edupath",
-      title: "EduPath",
-      tagline: "Consultor de Accesibilidad Universitaria (Ex-Ranking)",
-      problem: "La postulación a la educación superior tras la PAES genera un colapso de tiempo y ansiedad. Las familias no logran cruzar eficientemente sus puntajes, los requisitos de ponderación, las sedes geográficas y los beneficios estatales (como la Gratuidad).",
-      solution: "Un sistema de analítica de datos abiertos que democratiza la información educativa. El estudiante ingresa sus puntajes estimados y el sistema optimiza sus opciones, mostrando las carreras y universidades viables de forma transparente, sin sesgos de prestigio, enfocándose en la optimización de la postulación.",
+      title: "PSU-PAES DataLab",
+      tagline: "Ranking Histórico y Analítica Educacional Chile (2003–2025)",
+      problem: "Más de 20 años de registros oficiales PSU y PAES permanecían dispersos en microdatos complejos y poco accesibles, impidiendo a las familias y analistas estudiar la evolución de brechas educacionales, puntajes nacionales y percentiles de colegios en el tiempo.",
+      solution: "Plataforma analítica interactiva de alto rendimiento con más de dos décadas de datos consolidados (2003–2025). Permite filtrar en tiempo real por año, dependencia (Municipal, Subvencionado, Pagado, SLEP), ramas científico-humanista/técnica, percentiles y análisis de Top Movers.",
       technologies: [
-        "Python (Procesamiento y Limpieza de Datos)",
-        "Java / Spring Boot (API Rest Segura y Robusta)",
-        "Angular / React (Paneles Visuales de Datos)"
+        "Next.js (App Router)",
+        "TypeScript",
+        "Tailwind CSS",
+        "Analítica de Datos Masivos DEMRE",
+        "Vercel CI/CD"
       ],
-      githubUrl: "https://github.com/Pcastro2001",
+      liveUrl: "https://ranking-colegios-chile.vercel.app/",
+      githubUrl: "https://github.com/PCastro2001/ranking-colegios-chile",
     }
   ],
   skillsTerminal: {
